@@ -1,47 +1,31 @@
 <?php
+require_once 'Bicycle.php';
+require_once 'Car.php';
+require_once 'Truck.php';
 
-require('Bicycle.php');
-require ('Car.php');
+echo '<h3>Bycicle<h3>';
 
-echo '<h4>Bike</h4>';
-
-$bike = new Bicycle('blue');
+$bike = new Bicycle('blue', 1);
 echo $bike->forward();
-echo $bike->brake();
+var_dump($bike);
 
 echo '<hr>';
 
-// Challenge : Car class
-echo '<h4>Car</h4>';
+echo '<h3>Car</h3>';
 
-// Instancing a new Car object
-$citroen2Cv = new Car('red', 4, 'gazole');
+$tesla = new Car('green', 4, 'electric');
+echo $tesla->forward();
+var_dump($tesla);
 
-// Filling energy
-$citroen2Cv->setEnergyLevel(25);
-echo "Energy level is : " . $citroen2Cv->getEnergyLevel() . '<br>';
+var_dump(Car::ALLOWED_ENERGIES);
 
-// Starting the 2 Chevaux
-echo $citroen2Cv->start();
+echo '<hr>';
 
-// Riding the 2 Chevaux for 10 miles
-for ($i = 0; $i < 10; $i ++) {
-    echo $citroen2Cv->forward();
-}
+echo '<h3>Truck</h3>';
 
-// Checking its energy level
-echo "Energy level is : " . $citroen2Cv->getEnergyLevel() . '<br>';
+$daf = new Truck('white', 2, 'fuel', 50);
+$daf->setCargoLoad(30);
+echo $daf->howFull() . '<br>';
+echo $daf->forward();
 
-// Applying brakes
-echo $citroen2Cv->brake();
-
-// Riding a bit more
-for ($i = 0; $i < 16; $i ++) {
-    echo $citroen2Cv->forward();
-}
-
-// Trying to start again
-echo $citroen2Cv->start();
-
-// But there is no more energy
-echo "Energy level is : " . $citroen2Cv->getEnergyLevel() . '<br>';
+var_dump($daf);
