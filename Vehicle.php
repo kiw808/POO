@@ -2,7 +2,7 @@
 
 // Vehicle.php
 
-class Vehicle
+abstract class Vehicle
 {
     // Properties
     /**
