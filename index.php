@@ -49,7 +49,7 @@ var_dump($countryRoad);
 
 $quay = new PedestrianWay();
 $quay->addVehicle($bike);
-$quay->addVehicle($tesla);
+$quay->addVehicle($tesla);  // tesla object is not added to quay object because its class doesn't appear in ALLOWED_VEHICLES
 
 echo '<strong>Dump quay (pedestrian way)</strong> ';
 var_dump($quay);
